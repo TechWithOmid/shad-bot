@@ -2,6 +2,7 @@ import os
 import time
 from datetime import datetime
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 
 # TODO
 # make form presntaion availble
@@ -42,7 +43,7 @@ def login_confirm():
 def select_chat():
     chat_id = input('Enter chat id from top: ')
     chat_path = "/html//app-root//rb-chats/div[@class='im_dialogs_col_wrap noselect']/div[@class='im_dialogs_col']/div/div[@class='im_dialogs_scrollable_wrap nano-content']/ul[2]/li["+chat_id+"]//div[@class='im_dialog_peer']"
-    driver.find_element_by_xpath(chat_path)
+    driver.find_element_by_xpath(chat_path).click()
     send_present_msg()
 
 
@@ -54,22 +55,25 @@ def send_present_msg():
     while True:
         current_time = datetime.now()
         current_hour = current_time.strftime('%H')
-        print(f"{current_hour} : {current_time.strftime('%M')} : {current_time.strftime('%S')}")
+        current_min = current_time.strftime('%M')
+        current_sec = current_time.strftime('%S')
+
+        print(f"{current_hour} : {current_min} : {current_sec}") # print current time
         time.sleep(0.5)
-        
-        if str(current_hour) == send_hour:
-            if str(current_hour) >= send_min and str(current_hour) <= str(int(send_min) + 3):
-                print('sending proccess')
-                message_box = driver.find_element_by_xpath("/html//app-root//app-tab-container/app-tab-view//tab-conversation/div[@class='im_history_col']//div[@class='im_send_panel_wrap noselect']/div/div/form//div[@class='composer_rich_textarea']") # textarea path for input text
+        os.system('clear')
 
-                message_box.clear()
-                message_box.send_keys(user_message)
+        if current_hour == send_hour and current_min == send_min:
+            message_box = driver.find_element_by_xpath("/html/body/div[1]/app-root/span/div[1]/div/div/app-tab-container/app-tab-view/div[2]/tab-conversation/div/div[3]/div/div/div/form/div[3]/div[5]") # textarea path for input text
 
-                driver.find_element_by_xpath("/html/body/div[1]/app-root/span/div[1]/div/div/app-tab-container/app-tab-view/div[2]/tab-conversation/div/div[3]/div/div/div/form/div[4]/button/span[1]").click() # send message button path
+            message_box.clear()
+            message_box.send_keys(user_message)
+            message_box.send_keys(Keys.ENTER)
 
-                time.sleep(4)
-                print('Message send.')
-                select_chat()
+            # driver.find_element_by_xpath("//html/body/div[1]/app-root/span/div[1]/div/div/app-tab-container/app-tab-view/div[2]/tab-conversation/div/div[3]/div/div/div/form/div[4]/button").click() # send message button path
+
+            time.sleep(4)
+            print('Message send.')
+            select_chat()
     print('send_present_msg done')
             
 
