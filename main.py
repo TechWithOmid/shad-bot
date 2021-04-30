@@ -1,4 +1,6 @@
 """
+Shod Bot Version 1.0
+
 Blog: TechWithOmid.ir
 Email: TechWithOmid.gmail.com
 
