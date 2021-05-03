@@ -20,7 +20,7 @@
   cd shad-bot
 ```
 
-پکیج های مورد نیاز رو نصب میکنیم
+پکیج های مورد نیاز رو نصب کنید
 
 ```bash
   pip install -r requirements.txt
