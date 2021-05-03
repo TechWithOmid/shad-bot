@@ -16,8 +16,9 @@ from selenium.webdriver.common.keys import Keys
 
 # TODO
 # make multiple class selection available => Done!
-# detect the os for using clear and cls
+# clear the output depends on os (clear for linux, cls for windows)  => Done!
 # define check time
+# make the code better and cleaner
 
 # browser setting
 PATH = "/usr/bin/chromedriver"
