@@ -7,6 +7,7 @@ Email: TechWithOmid.gmail.com
 feel free to use this script and report bug and or feature
 """
 import os
+import platform
 import time
 import pyfiglet
 from datetime import datetime
@@ -28,11 +29,22 @@ driver.set_window_position(-10000, 0)
 driver.get("https://web.shad.ir")  # shad url
 
 
+def clear():
+    """
+    clear the output depends on os
+    """
+    s = platform.system()
+    if s == "Linux":
+        clear()
+    if s == "Windows":
+        os.system('cls')
+
+
 def main():
     """
     Script start point
     """
-    os.system('clear')
+    clear()
     start_banner = pyfiglet.figlet_format("Shad Bot!!")
     print(start_banner)
     user_param = input("Press Enter to continue ")
@@ -43,7 +55,7 @@ def main():
 
 
 def login():
-    os.system('clear')
+    clear()
     print(pyfiglet.figlet_format("Shad Bot!!"))  # print banner
 
     user_phone_number = input('Enter Your Phone Number: ')  # user phone number
@@ -68,7 +80,7 @@ def login():
 
 
 def login_confirm():
-    os.system('clear')
+    clear()
     print(pyfiglet.figlet_format("Shad Bot!!"))  # print banner
 
     confirm_code = input('enter the code that we send: ')  # Shad login confirm code
@@ -81,7 +93,7 @@ def login_confirm():
 
 
 def select_chat():
-    os.system('clear')
+    clear()
     print(pyfiglet.figlet_format("Shad Bot!!"))  # print banner
 
     first_chat_id = input('Enter 1st chat id from top: ')
@@ -107,17 +119,19 @@ def select_chat():
                        "" + second_chat_id + "]//div[@class='im_dialog_peer'] "
 
     third_chat_path = "/html//app-root//rb-chats/div[@class='im_dialogs_col_wrap noselect']/div[" \
-                       "@class='im_dialogs_col']/div/div[@class='im_dialogs_scrollable_wrap nano-content']/ul[2]/li[" \
-                       "" + third_chat_id + "]//div[@class='im_dialog_peer'] "
+                      "@class='im_dialogs_col']/div/div[@class='im_dialogs_scrollable_wrap nano-content']/ul[2]/li[" \
+                      "" + third_chat_id + "]//div[@class='im_dialog_peer'] "
 
     fourth_chat_path = "/html//app-root//rb-chats/div[@class='im_dialogs_col_wrap noselect']/div[" \
                        "@class='im_dialogs_col']/div/div[@class='im_dialogs_scrollable_wrap nano-content']/ul[2]/li[" \
                        "" + fourth_chat_id + "]//div[@class='im_dialog_peer'] "
-    send_present_msg(first_chat_path, second_chat_path, first_class_time, second_class_time, third_class_time, fourth_class_time, third_chat_path, fourth_chat_path)
+    send_present_msg(first_chat_path, second_chat_path, first_class_time, second_class_time, third_class_time,
+                     fourth_class_time, third_chat_path, fourth_chat_path)
 
 
-def send_present_msg(first_chat_path, second_chat_path, first_class_time, second_class_time, third_class_time, fourth_class_time, third_chat_path, fourth_chat_path):
-    os.system('clear')
+def send_present_msg(first_chat_path, second_chat_path, first_class_time, second_class_time, third_class_time,
+                     fourth_class_time, third_chat_path, fourth_chat_path):
+    clear()
     print(pyfiglet.figlet_format("Shad Bot!!"))  # print banner
 
     user_message = input('Enter the message you want to send: ')  # message user want to send
@@ -133,7 +147,7 @@ def send_present_msg(first_chat_path, second_chat_path, first_class_time, second
         print(pyfiglet.figlet_format("Shad Bot!!"))  # print banner
         print(f"{current_hour} : {current_min} : {current_sec}")  # print current time
         time.sleep(0.5)
-        os.system('clear')
+        clear()
 
         if first_class_time[0] == current_hour and first_class_time[1] == current_min:
             driver.find_element_by_xpath(first_chat_path).click()
@@ -165,7 +179,7 @@ def send_present_msg(first_chat_path, second_chat_path, first_class_time, second
             message_box.clear()
             message_box.send_keys(user_message)
             message_box.send_keys(Keys.ENTER)
-            time.sleep(60)
+            break
 
 
 main()
