@@ -18,6 +18,8 @@ from selenium.webdriver.common.keys import Keys
 # TODO
 # make multiple class selection available => Done!
 # clear the output depends on os (clear for linux, cls for windows)  => Done!
+# make select_chat cleaner
+# make send_present_msg cleaner
 # define check time
 # make the code better and cleaner
 
@@ -42,6 +44,7 @@ def main():
     start_banner = pyfiglet.figlet_format("Shad Bot!!")
     print(start_banner)
     user_param = input("Press Enter to continue ")
+
     if user_param == "":
         # browser setting
         PATH = "/usr/bin/chromedriver"
@@ -54,7 +57,7 @@ def main():
 
         login()
     else:
-        sys.exit()
+        sys.exit()  # exit the program
 
 
 def login():
