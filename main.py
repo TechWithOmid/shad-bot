@@ -23,6 +23,14 @@ from selenium.webdriver.common.keys import Keys
 # define check time
 # make the code better and cleaner
 
+# browser setting
+PATH = "/usr/bin/chromedriver"
+options = webdriver.ChromeOptions()
+options.add_argument('--ignore-ssl-errors=yes')  # ignore chrome ssl error
+options.add_argument('--ignore-certificate-errors')  # ignore chrome certification error
+driver = webdriver.Chrome(PATH, options=options)  # chrome driver settings
+driver.set_window_position(-10000, 0)
+driver.get("https://web.shad.ir")  # shad url
 
 
 def clear():
@@ -46,15 +54,6 @@ def main():
     user_param = input("Press Enter to continue ")
 
     if user_param == "":
-        # browser setting
-        PATH = "/usr/bin/chromedriver"
-        options = webdriver.ChromeOptions()
-        options.add_argument('--ignore-ssl-errors=yes')  # ignore chrome ssl error
-        options.add_argument('--ignore-certificate-errors')  # ignore chrome certification error
-        driver = webdriver.Chrome(PATH, options=options)  # chrome driver settings
-        driver.set_window_position(-10000, 0)
-        driver.get("https://web.shad.ir")  # shad url
-
         login()
     else:
         sys.exit()  # exit the program
