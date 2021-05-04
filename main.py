@@ -7,6 +7,7 @@ Email: TechWithOmid.gmail.com
 feel free to use this script and report bug and or feature
 """
 import os
+import sys
 import platform
 import time
 import pyfiglet
@@ -20,14 +21,6 @@ from selenium.webdriver.common.keys import Keys
 # define check time
 # make the code better and cleaner
 
-# browser setting
-PATH = "/usr/bin/chromedriver"
-options = webdriver.ChromeOptions()
-options.add_argument('--ignore-ssl-errors=yes')  # ignore chrome ssl error
-options.add_argument('--ignore-certificate-errors')  # ignore chrome certification error
-driver = webdriver.Chrome(PATH, options=options)  # chrome driver settings
-driver.set_window_position(-10000, 0)
-driver.get("https://web.shad.ir")  # shad url
 
 
 def clear():
@@ -36,7 +29,7 @@ def clear():
     """
     s = platform.system()
     if s == "Linux":
-        clear()
+        os.system('clear')
     if s == "Windows":
         os.system('cls')
 
@@ -50,9 +43,18 @@ def main():
     print(start_banner)
     user_param = input("Press Enter to continue ")
     if user_param == "":
+        # browser setting
+        PATH = "/usr/bin/chromedriver"
+        options = webdriver.ChromeOptions()
+        options.add_argument('--ignore-ssl-errors=yes')  # ignore chrome ssl error
+        options.add_argument('--ignore-certificate-errors')  # ignore chrome certification error
+        driver = webdriver.Chrome(PATH, options=options)  # chrome driver settings
+        driver.set_window_position(-10000, 0)
+        driver.get("https://web.shad.ir")  # shad url
+
         login()
     else:
-        pass
+        sys.exit()
 
 
 def login():
