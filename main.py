@@ -1,10 +1,10 @@
 """
-Shad Bot Version 1.0
+Shad Bot Version 1.1
 
 Blog: TechWithOmid.ir
 Email: TechWithOmid.gmail.com
 
-feel free to use this script and report bug and or feature
+feel free to use this script and report bug or add features
 """
 import os
 import sys
@@ -12,6 +12,7 @@ import platform
 import time
 import pyfiglet
 from datetime import datetime
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
@@ -24,11 +25,10 @@ from selenium.webdriver.common.keys import Keys
 # make the code better and cleaner
 
 # browser setting
-PATH = "/usr/bin/chromedriver"
 options = webdriver.ChromeOptions()
 options.add_argument('--ignore-ssl-errors=yes')  # ignore chrome ssl error
 options.add_argument('--ignore-certificate-errors')  # ignore chrome certification error
-driver = webdriver.Chrome(PATH, options=options)  # chrome driver settings
+driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=options)  # chrome driver settings
 driver.set_window_position(-10000, 0)
 driver.get("https://web.shad.ir")  # shad url
 
@@ -60,6 +60,9 @@ def main():
 
 
 def login():
+    """
+    login to shad web application
+    """
     clear()
     print(pyfiglet.figlet_format("Shad Bot!!"))  # print banner
 
@@ -85,6 +88,9 @@ def login():
 
 
 def login_confirm():
+    """
+    confirm the login by sending SMS
+    """
     clear()
     print(pyfiglet.figlet_format("Shad Bot!!"))  # print banner
 
@@ -98,6 +104,9 @@ def login_confirm():
 
 
 def select_chat():
+    """
+    select chat and time for sending message
+    """
     clear()
     print(pyfiglet.figlet_format("Shad Bot!!"))  # print banner
 
@@ -136,6 +145,9 @@ def select_chat():
 
 def send_present_msg(first_chat_path, second_chat_path, first_class_time, second_class_time, third_class_time,
                      fourth_class_time, third_chat_path, fourth_chat_path):
+    """
+    send message to chat
+    """
     clear()
     print(pyfiglet.figlet_format("Shad Bot!!"))  # print banner
 
