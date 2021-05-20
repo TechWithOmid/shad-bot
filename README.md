@@ -51,3 +51,10 @@
 - [@امید](https://www.github.com/TechWithOmid)
 
 </div>
+
+## TODO
+- [x] make it cross platform
+- [ ] make the code cleaner
+  - [ ] make select_chat function clean
+  - [ ] make send_present_message function clean
+- [ ] add gui
