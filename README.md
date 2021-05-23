@@ -58,3 +58,4 @@
   - [ ] make select_chat function clean
   - [ ] make send_present_message function clean
 - [ ] add gui
+- [ ] add exit key
