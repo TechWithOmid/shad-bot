@@ -53,9 +53,7 @@
 </div>
 
 ## TODO
+- [ ] add gui
 - [x] make it cross platform
 - [x] make the code cleaner
-  - [x] make select_chat function clean
-  - [x] make send_present_message function clean
-- [ ] add gui
 - [x] add exit key
