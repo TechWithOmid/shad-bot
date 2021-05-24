@@ -161,5 +161,12 @@ def send_present_msg(chat_id, user_message ):
     print("yay message send :)")
 
 
-main()
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        driver.quite()
+        clear()
+        print("May We Meet Again :)")
+        time.sleep(2)
 
