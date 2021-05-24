@@ -54,8 +54,8 @@
 
 ## TODO
 - [x] make it cross platform
-- [ ] make the code cleaner
-  - [ ] make select_chat function clean
-  - [ ] make send_present_message function clean
+- [x] make the code cleaner
+  - [x] make select_chat function clean
+  - [x] make send_present_message function clean
 - [ ] add gui
-- [ ] add exit key
+- [x] add exit key
