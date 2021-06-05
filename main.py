@@ -25,13 +25,12 @@ driver.get("https://web.shad.ir")  # shad url
 
 def clear():
     """
-    clear the output depends on os
+    clear the output depending on os
     """
-    s = platform.system()
-    if s == "Linux":
-        os.system('clear')
-    if s == "Windows":
-        os.system('cls')
+    os.system({
+        "Windows": "cls",
+        "Linux": "clear"
+    }[platform.system()])
 
 
 def main():
@@ -54,7 +53,7 @@ def login():
 
     try:
         user_phone_number = input('Enter Your Phone Number: ')  # user phone number
-        phone_regex = re.compile('^(\\+98|0)?9\\d{9}$') # regex for validate phone number
+        phone_regex = re.compile('^(\\+98|0)?9\\d{9}$') # regex for phone number validation
         if re.fullmatch(phone_regex, user_phone_number):
 
              number_field = driver.find_element_by_xpath("/html//app-root/tab-login/div[@class='login_page_wrap']//form["
@@ -77,7 +76,7 @@ def login():
         else:
             raise ValueError
     except ValueError:
-        print('Phone Number Is Not Valid, try again.')
+        print('Phone Number Is Invalid, try again.')
         time.sleep(2)
         login()
 
