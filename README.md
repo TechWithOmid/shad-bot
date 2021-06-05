@@ -53,6 +53,7 @@
 </div>
 
 ## TODO
+- [ ] add config file (save user data)
 - [ ] add gui
 - [x] make it cross platform
 - [x] make the code cleaner
