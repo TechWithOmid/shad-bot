@@ -4,7 +4,6 @@
 ![App Screenshot](https://github.com/TechWithOmid/shad-bot/blob/main/screenshot.png?text=App+Screenshot+Here)
 <div dir="rtl">
 <br>
-  <h3>به دلیل اینکه برنامه‌ی شاد قراره پولی بشه دیگه برای این اسکریپت آپدیتی نمیاد.</h3>
 این برنامه رو در وقت آزاد خودم نوشتم و چون صبح ها دیر بیدار میشم اومدم و پروسه ی حاضری زدن در شاد رو اتوماتیک کردم فقط لازمه که برنامه رو اجرا کنید در شاد لاگین کنید و برای انتخاب گروه بهتره که چت رو پین کنید که بتونید اون رو انتخاب کنید که بصورت عدد از سمت بالا به پایین میتونید چت رو انتخاب کنید و سعی میکنم که به مرور زمان برنامه رو بهبود بدم.
 
 <br><br>
@@ -54,7 +53,7 @@
 </div>
 
 ## TODO
-- [ ] add gui -> in progress
+- [ ] add gui 
 - [ ] add config file (save user data)
 - [ ] add help menu
 - [x] make it cross platform
